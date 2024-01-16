@@ -1,7 +1,6 @@
 function Formulario({botao, eventoTeclado, cadastrar, obj, cancelar, remover, alterar})  {
   return (
     <form>
-     
         <input type="text" value={obj.nome} name='nome' onChange={eventoTeclado} placeholder='Nome' className='form-control'  />
 
         <select value={obj.cidade} name='cidade' placeholder='Cidade' onChange={eventoTeclado} className='form-control' >
@@ -13,7 +12,7 @@ function Formulario({botao, eventoTeclado, cadastrar, obj, cancelar, remover, al
             <option value="Comendador Gomes">Comendador Gomes</option>
         </select>
         
-        <select value={obj.situacao} name="situacao" onChange={eventoTeclado} placeholder='Situação' className='form-control' >
+        <select value={obj.situação} name="situação" onChange={eventoTeclado} placeholder='Situação' className='form-control' >
             <option value="Primeira vez">Primeira vez</option>
             <option value="Retorno">Retorno</option>
             <option value="Renovação de Receita">Renovação de Receita</option>

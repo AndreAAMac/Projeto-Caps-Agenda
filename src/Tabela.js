@@ -1,4 +1,13 @@
-function Tabela({vetor, selecionar}){
+function Tabela({vetor, selecionar, ordenar, order}){
+
+    if(order === 'name'){
+        vetor.sort((a, b) => a.nome.localeCompare(b.nome));
+      } else if(order === 'date'){
+        vetor.sort((a, b) => new Date(a.dataConsulta) - new Date(b.dataConsulta));
+      } else if(order === 'city'){
+        vetor.sort((a, b) => a.cidade.localeCompare(b.cidade));
+      }
+    
     return (
         <table className="table">
             <thead>
@@ -18,7 +27,7 @@ function Tabela({vetor, selecionar}){
                             <td>{indice+1}</td>
                             <td>{obj.nome}</td>
                             <td>{obj.cidade}</td>
-                            <td>{obj.situacao}</td>
+                            <td>{obj.situação}</td>
                             <td>{obj.dataConsulta}</td>
                             <td><button onClick={()=>{selecionar(indice)}} className="btn btn-success">Selecionar</button></td>
                         </tr>

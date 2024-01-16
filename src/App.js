@@ -5,12 +5,11 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-
   const produto = {
     codigo:'',
     nome:'',
     cidade:'Frutal',
-    situacao:'Primeira vez',
+    situação:'Primeira vez',
     dataConsulta:''
   }
 
@@ -45,7 +44,7 @@ function App() {
         alert(retorno_convertido.mensagem);
       }else{
         setProdutos([...produtos,retorno_convertido]);
-        alert('Produto cadastrado com sucesso!');
+        //alert('Produto cadastrado com sucesso!');
         limparFormulario();
       }
     }
@@ -136,11 +135,31 @@ function App() {
     })
   }
 
+
+  const [order, setOrder] = useState('name');
+
+  const changeOrder = (order) => {
+      if(order === 'name'){
+        setOrder(order => order === 'name' ? 'name_desc' : 'name');
+      } else if(order === 'date'){
+        setOrder(order => order === 'date' ? 'date_desc' : 'date');
+      } else if(order === 'city'){
+        setOrder(order => order === 'city' ? 'city_desc' : 'city');
+      }
+    }
+
+ 
+
   return (
     <div className="App">
       <Formulario botao={btnCadastrar} eventoTeclado={aoDigitar} cadastrar={cadastrar} obj={objProduto} cancelar={limparFormulario} remover={remover} alterar={alterar}/>
-      <Tabela vetor={produtos} selecionar={selecionarProduto}/>
-    </div>
+      <Tabela vetor={produtos} selecionar={selecionarProduto} order={order} ordenar={changeOrder}/>
+      <div>
+        <button onClick={() => changeOrder('name')}>Ordenar por nome</button>
+        <button onClick={() => changeOrder('date')}>Ordenar por data</button>
+        <button onClick={() => changeOrder('city')}>Ordenar por cidade</button>
+      </div>
+      </div>
   );
 }
 
