@@ -135,7 +135,7 @@ function App() {
     })
   }
 
-
+  //Ordenar por nome, cidade e data
   const [order, setOrder] = useState('name');
 
   const changeOrder = (order) => {
