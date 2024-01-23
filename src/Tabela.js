@@ -12,7 +12,7 @@ function Tabela({vetor, selecionar, ordenar, order}){
         <table className="table">
             <thead>
                 <tr>
-                    <th>#</th>
+                    
                     <th>Nome</th>
                     <th>Cidade</th>
                     <th>Situacao</th>
@@ -24,7 +24,7 @@ function Tabela({vetor, selecionar, ordenar, order}){
                 {
                     vetor.map((obj, indice) =>(
                         <tr key={indice}>
-                            <td>{indice+1}</td>
+                            
                             <td>{obj.nome}</td>
                             <td>{obj.cidade}</td>
                             <td>{obj.situação}</td>

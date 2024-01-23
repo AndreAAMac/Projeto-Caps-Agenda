@@ -113,7 +113,7 @@ function App() {
         alert(retorno_convertido.mensagem);
       }else{
         //Mensagem
-        alert('Produto alterado com sucesso!');
+        alert('Cadastrado alterado com sucesso!');
 
         //Cópia de vetor de produtos
         let vetorTemp = [...produtos];
